@@ -10,7 +10,7 @@ const computerHearts = document.querySelectorAll(".computer-hearts .heart");
 let playerLives = 3;
 let computerLives = 3;
 const fullHeartSrc = "images/heart.png";
-const emptyHeartSrc = "images/heart-dark.png";
+const emptyHeartSrc = "images/penis.png";
 
 if (btn.length > 0) {
     btn.forEach(buttonElement => {
@@ -174,4 +174,5 @@ if (check) {
         }, 1000);
     });
 }
+
 
