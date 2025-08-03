@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="start-screen">
+        <h1 class="start-screen-header">Welcome my friend!!!</h1>
+        <button class="start-button">PLAY</button>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="music-nav">
+        <audio class="audio" src="music/Master of Puppets (Remastered).mp3" controls></audio>
+    </div>
+
     <div class="main">
         <div class="hearts computer-hearts">
             <img class="heart" src="images/heart.png" alt="Full Heart">
@@ -48,6 +59,16 @@
             <img class="heart" src="images/heart.png" alt="Full Heart">
             <img class="heart" src="images/heart.png" alt="Full Heart">
         </div>
+    </div>
+
+    <div class="win-lose-screen">
+        <h1 class="win-lose-header">XXX</h1>
+        <div class="scoreboard">
+            <p class="enemy-score">X</p>
+            <p>:</p>
+            <p class="you-score">X</p>
+        </div>
+        <button class="reset-btn">Play again</button>
     </div>
 
     <script src="index.js"></script>

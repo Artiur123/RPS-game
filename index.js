@@ -12,6 +12,26 @@ let computerLives = 3;
 const fullHeartSrc = "images/heart.png";
 const emptyHeartSrc = "images/heart-dark.png";
 
+const winLoseScreen = document.querySelector(".win-lose-screen");
+const winLoseHeader = document.querySelector(".win-lose-header");
+const enemyScore = document.querySelector(".enemy-score");
+const youScore = document.querySelector(".you-score");
+const resetBtn = document.querySelector(".reset-btn");
+const overlay = document.querySelector(".overlay");
+const startButton = document.querySelector(".start-button");
+const startScreen = document.querySelector(".start-screen");
+
+const audio = document.querySelector(".audio");
+
+startButton.addEventListener("click", () => {
+    startScreen.classList.add("start-screen-off");
+    audio.play();
+})
+
+if (audio) {
+    audio.volume = 0.3;
+}
+
 if (btn.length > 0) {
     btn.forEach(buttonElement => {
         buttonElement.addEventListener("mousemove", (e) => {
@@ -151,14 +171,23 @@ if (check) {
             }
 
             if (gameOver) {
-                setTimeout(() => {
-                    if (playerLives <= 0) {
-                        alert("Koniec gry! Przegrales!");
-                    } else if (computerLives <= 0) {
-                        alert("Gratulacje! Wygrales!");
-                    }
-                    resetGame()
-                }, 2000);
+                if (playerLives <= 0) {
+                    winLoseScreen.classList.add("win-lose-screen-active");
+                    overlay.classList.add("overlay-active");
+                    winLoseHeader.innerHTML = "Lose";
+                } else if (computerLives <= 0) {
+                    winLoseScreen.classList.add("win-lose-screen-active");
+                    overlay.classList.add("overlay-active");
+                    winLoseHeader.innerHTML = "Win";
+                }
+                enemyScore.innerHTML = 3 - playerLives;
+                youScore.innerHTML = 3 - computerLives;
+                resetBtn.addEventListener("click", () => {
+                    resetGame();
+                    winLoseScreen.classList.remove("win-lose-screen-active");
+                    overlay.classList.remove("overlay-active");
+                    return;
+                })
             }
 
             setTimeout(() => {
@@ -174,6 +203,4 @@ if (check) {
         }, 1000);
     });
 }
-
-
 
